@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>قائمة المهام • To-Do</title>
+
+  <!-- خط اختياري (يحتاج إنترنت) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1 id="app-title">قائمة المهام</h1>
+        <p id="subtitle" class="subtitle">منظم المهام البسيط والجميل</p>
+      </div>
+
+      <div class="controls">
+        <div class="lang-toggle" role="group" aria-label="language">
+          <button id="btn-ar" class="lang-btn active" aria-pressed="true">العربية</button>
+          <button id="btn-en" class="lang-btn" aria-pressed="false">English</button>
+        </div>
+
+        <button id="theme-toggle" class="icon-btn" title="تبديل الوضع" aria-label="toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <section class="add-area">
+        <input id="task-input" type="text" placeholder="أضف مهمة جديدة..." aria-label="task input" />
+        <input id="remind-input" type="datetime-local" aria-label="reminder datetime" />
+        <button id="add-btn" class="primary">إضافة</button>
+      </section>
+
+      <section class="filters-area">
+        <div class="filters" role="tablist" aria-label="filters">
+          <button class="filter-btn active" data-filter="all">الكل</button>
+          <button class="filter-btn" data-filter="active">غير منجزة</button>
+          <button class="filter-btn" data-filter="completed">منجزة</button>
+        </div>
+
+        <div class="actions">
+          <button id="export-btn" class="muted">تصدير JSON</button>
+          <button id="import-btn" class="muted">استيراد JSON</button>
+          <button id="clear-all" class="muted danger">مسح الكل</button>
+        </div>
+      </section>
+
+      <ul id="tasks" class="task-list" aria-live="polite"></ul>
+
+      <footer class="footer">
+        <span id="counter">0 مهمة</span>
+        <small class="hint" id="hint">اضغط ✏ للتعديل • ✔ للإنهاء • ❌ للحذف</small>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ملف صوتي للتنبيه -->
+  <audio id="ding-sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+  <!-- اختياري: عنصر ملف لاستيراد JSON -->
+  <input id="file-input" type="file" accept="application/json" style="display:none" />
+
+  <script src="script.js"></script>
+</body>
+</html>

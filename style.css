@@ -1,0 +1,77 @@
+:root{
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --text: #0f1724;
+    --muted: #6b7280;
+    --primary: #4f46e5; /* indigo */
+    --accent: #10b981; /* green */
+    --danger: #ef4444;
+    --glass: rgba(255,255,255,0.6);
+    --shadow: 0 8px 30px rgba(16,24,40,0.06);
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+  .app{min-height:100%;display:flex;flex-direction:column;align-items:center;padding:28px}
+  
+  /* top bar */
+  .topbar{width:100%;max-width:920px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .title-wrap h1{margin:0;font-size:20px}
+  .subtitle{margin:2px 0 0;font-size:12px;color:var(--muted)}
+  
+  /* controls */
+  .controls{display:flex;gap:8px;align-items:center}
+  .lang-toggle{display:flex;border-radius:8px;background:transparent;border:1px solid rgba(0,0,0,0.06);overflow:hidden}
+  .lang-btn{padding:6px 10px;border:0;background:transparent;cursor:pointer;font-size:13px;color:var(--muted)}
+  .lang-btn.active{background:var(--primary);color:#fff}
+  .icon-btn{padding:8px;border-radius:8px;border:0;background:var(--card);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  
+  /* main card */
+  .card{width:100%;max-width:920px;background:var(--card);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .add-area{display:flex;gap:10px;margin-bottom:12px;align-items:center}
+  #task-input{flex:1;padding:12px;border-radius:10px;border:1px solid #e6e9ef;font-size:15px}
+  #remind-input{padding:10px;border-radius:8px;border:1px solid #e6e9ef;background:#fff}
+  .primary{background:var(--primary);color:#fff;border:0;padding:10px 14px;border-radius:10px;cursor:pointer}
+  .primary:hover{filter:brightness(0.98)}
+  
+  /* filters & actions */
+  .filters-area{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px;flex-wrap:wrap}
+  .filters{display:flex;gap:8px;flex-wrap:wrap}
+  .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid #eef2ff;background:transparent;cursor:pointer;font-size:13px;color:var(--muted)}
+  .filter-btn.active{background:var(--glass);border-color:transparent;color:var(--text);box-shadow:inset 0 -2px 0 rgba(0,0,0,0.02)}
+  .actions .muted{background:transparent;border:0;color:var(--muted);cursor:pointer}
+  .actions .danger{color:var(--danger)}
+  
+  /* task list */
+  .task-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .task-item{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:12px;background:linear-gradient(180deg, #ffffff, #fbfdff);border:1px solid #f0f5ff;box-shadow:0 6px 18px rgba(99,102,241,0.04)}
+  .task-left{display:flex;gap:12px;align-items:center;flex:1;min-width:0}
+  .task-meta{display:flex;flex-direction:column;min-width:0}
+  .task-text{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .task-remind{font-size:12px;color:var(--muted);margin-top:4px}
+  .task-actions{display:flex;gap:8px;align-items:center}
+  .small-btn{border:0;padding:8px;border-radius:8px;cursor:pointer;background:transparent}
+  .small-btn:hover{background:#f3f4f6}
+  
+  /* completed */
+  .task-item.completed{opacity:0.6;text-decoration:line-through;background:linear-gradient(180deg,#f6fffa,#ecfdf5);border-color:#d1fae5}
+  
+  /* footer */
+  .footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:var(--muted);font-size:13px}
+  .hint{display:block;margin-left:8px;color:var(--muted)}
+  
+  /* dark theme */
+  body.dark{background:#071025;color:#e6eef8}
+  body.dark .card{background:#071227;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+  body.dark .task-item{background:linear-gradient(180deg,#071025,#07182a);border:1px solid rgba(255,255,255,0.03)}
+  body.dark .filter-btn{color:#9fb0ff;border-color:transparent}
+  body.dark .lang-btn.active{background:#4f46e5}
+  
+  /* responsive */
+  @media (max-width:820px){
+    .add-area{flex-direction:column;align-items:stretch}
+    #remind-input{width:100%}
+    .controls{width:100%;justify-content:flex-end}
+    .topbar{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+  
